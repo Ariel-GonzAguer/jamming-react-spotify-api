@@ -1,0 +1,20 @@
+.resultsSubContainer {
+  border: 6px solid black;
+  border-radius: 25px;
+  min-height: 500px;
+  min-width: 400px;
+  background-color: #bd4aff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.hr {
+  width: 90%; 
+  margin: 0 auto;
+  border-top: 3px solid white;
+}
+
+
+
