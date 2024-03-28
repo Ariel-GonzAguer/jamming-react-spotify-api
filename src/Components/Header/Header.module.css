@@ -1,0 +1,15 @@
+.header {
+  background-color: #5b2d75;
+  color: #fb9553;
+  text-align: center;
+  font-size: 1.5rem;
+  height: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.mmm {
+  transition: color 2s ease;
+}
+

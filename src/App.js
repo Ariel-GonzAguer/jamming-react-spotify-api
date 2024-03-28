@@ -1,10 +1,13 @@
+import React from'react'
+import Header from './Components/Header/Header'
+import SearchBar from './Components/SearchBar/SearchBar';
 
-import './App.css';
 
 function App() {
   return (
-    <div className="App">
-    <h1>Jamming!</h1>
+  <div>
+    <Header />
+    <SearchBar />
     </div>
   );
 }

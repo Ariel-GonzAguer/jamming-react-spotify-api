@@ -1,0 +1,6 @@
+Paleta de colores a usar:
+.color1 { #3f264d }; morado
+.color2 { #5d2747 }; violeta
+.color3 { #9f3647 }; vino
+.color4 { #db4648 }; rojizo
+.color5 { #fb9553 };anaranjado
