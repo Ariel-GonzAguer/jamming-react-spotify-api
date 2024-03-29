@@ -14,7 +14,7 @@ export default function BigContainer() {
     setSearch(e.target.value)
   }
 
-  async function handleSubmit(e) {
+function handleSubmit(e) {
     e.preventDefault();
     // const response = await fetch('spotify.com');
     // const data = await response.json();
@@ -22,20 +22,19 @@ export default function BigContainer() {
     // setSearchResults(data);
 
     setSearchResults([
-      { id: 'a1', title: 'Track 11', artist: 'L6', album: '130121', test: true },
-      { id: 'b2', title: 'Track 12', artist: 'L66', album: '130121', test: true },
-      { id: 'c3', title: 'Track 13', artist: 'L666', album: '130121', test: true },
-      { id: 'd4', title: 'Track 14', artist: 'L1', album: '130121', test: true },
-      { id: 'e5', title: 'Track 15', artist: 'L13', album: '130121', test: true }
+      { id: 'a1', title: 'Track 11', artist: 'L6', album: '130121'},
+      { id: 'b2', title: 'Track 12', artist: 'L66', album: '130121'},
+      { id: 'c3', title: 'Track 13', artist: 'L666', album: '130121'},
+      { id: 'd4', title: 'Track 14', artist: 'L1', album: '130121'},
+      { id: 'e5', title: 'Track 15', artist: 'L13', album: '130121'}
     ]);
-
-    setSearch('');
+    console.log(searchResults)
   }
 
   function addSong(e) {
     const newSong =
     {
-      id: e.target.id,
+      key: e.target.id,
       title: e.target.title,
       artist: e.target.artist,
       album: e.target.album

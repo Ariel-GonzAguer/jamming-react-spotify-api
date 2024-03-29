@@ -12,7 +12,7 @@ export default function ResultsSubContainer(props) {
         <ul>
           {props.searchResults.map(result => (
             <>
-            <Track result={result} addSong={props.addSong} album={props.album} />
+            <Track result={result} addSong={props.addSong} />
             <hr className={styles.hr} />
             </>
           ))}

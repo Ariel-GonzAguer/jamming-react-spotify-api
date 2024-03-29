@@ -11,6 +11,6 @@ export default function Track(props) {
       Song:{props.result.title}- 
       Artist:{props.result.artist}- 
       Album:{props.result.album} 
-      <AddButton addSong={props.addSong} result={props.result} artist={props.result.artist} /></li>
+      <AddButton addSong={props.addSong} result={props.result} /></li>
   )
 }
