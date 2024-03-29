@@ -7,9 +7,10 @@ export default function Track(props) {
 
 
   return (
-    <>
-      <li className={styles.li} key={props.result.id}>{props.result.title} {props.result.artist} {props.result.album}
-      <AddButton addSong={props.addSong} /></li>
-    </>
+    <li className={styles.li}>
+      Song:{props.result.title}- 
+      Artist:{props.result.artist}- 
+      Album:{props.result.album} 
+      <AddButton addSong={props.addSong} result={props.result} artist={props.result.artist} /></li>
   )
 }

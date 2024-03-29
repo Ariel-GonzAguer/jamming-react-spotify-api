@@ -1,13 +1,14 @@
 import React from'react'
 import Header from './Components/Header/Header'
-import SearchBar from './Components/SearchBar/SearchBar';
+import BigContainer from './Components/BigContainer/BigContainer'
 
 
 function App() {
   return (
   <div>
     <Header />
-    <SearchBar />
+    <BigContainer />
+
     </div>
   );
 }

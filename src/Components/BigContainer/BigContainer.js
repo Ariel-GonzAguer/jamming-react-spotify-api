@@ -21,7 +21,13 @@ export default function BigContainer() {
 
     // setSearchResults(data);
 
-    setSearchResults([{ id: '1fr5aq', title: 'Track sdfsdfsdfsdg', artist: 'L6', album: '130121' }, { id: '1fr5dfert54', title: 'Track 12', artist: 'L6', album: '130121' }, { id: 'bfgh4523ed', title: 'Track 13', artist: 'L6', album: '130121' }, { id: '21345tyhgb', title: 'Track 14', artist: 'L6', album: '130121' }, { id: '123456789', title: 'Track 15', artist: 'L6', album: '130121' }]);
+    setSearchResults([
+      { id: 'a1', title: 'Track 11', artist: 'L6', album: '130121', test: true },
+      { id: 'b2', title: 'Track 12', artist: 'L66', album: '130121', test: true },
+      { id: 'c3', title: 'Track 13', artist: 'L666', album: '130121', test: true },
+      { id: 'd4', title: 'Track 14', artist: 'L1', album: '130121', test: true },
+      { id: 'e5', title: 'Track 15', artist: 'L13', album: '130121', test: true }
+    ]);
 
     setSearch('');
   }
@@ -46,7 +52,7 @@ export default function BigContainer() {
       <SearchButton search={search} handleSubmit={handleSubmit} />
 
       <div className={styles.resNpla}>
-        <ResultsSubContainer searchResults={searchResults} newPlaylist={newPlaylist} addSong={addSong} />
+        <ResultsSubContainer searchResults={searchResults} addSong={addSong} />
         <MyPlaylistSubContainer newPlaylist={newPlaylist} />
       </div>
 

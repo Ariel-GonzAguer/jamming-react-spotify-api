@@ -4,3 +4,4 @@ Paleta de colores a usar:
 .color3 { #9f3647 }; vino
 .color4 { #db4648 }; rojizo
 .color5 { #fb9553 };anaranjado
+lila #bd4aff
