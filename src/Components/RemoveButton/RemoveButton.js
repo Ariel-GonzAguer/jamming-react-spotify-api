@@ -7,6 +7,6 @@ export default function RemoveButton(props) {
       id={props.result.id} title={props.result.title}
       data-artist={props.result.artist} data-album={props.result.album}
     >
--</button>
+❌</button>
   )
 }
