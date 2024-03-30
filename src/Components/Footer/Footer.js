@@ -5,7 +5,7 @@ export default function Footer() {
   return (
     <section className={styles.footer} style={{background: '#333'}}>
       <footer >
-        <p>Created by Arie Gonz Aguer / diosDeNada</p>
+        <p>Created by Arie Gonz Aguer / diosDeNada using Spotify API</p>
       </footer>
     </section>
   )
