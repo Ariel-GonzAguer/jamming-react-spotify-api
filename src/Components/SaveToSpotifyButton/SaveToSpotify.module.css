@@ -1,0 +1,9 @@
+.spotify {
+  background-color: greenyellow;
+  color: black;
+  border: 2px solid green;
+  width: 70px;
+  height: 70px;
+  border-radius: 25px;
+  text-align: center;
+}
