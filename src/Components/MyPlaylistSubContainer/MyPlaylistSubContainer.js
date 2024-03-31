@@ -2,15 +2,16 @@ import React from 'react'
 import styles from '../ResultsSubContainer/ResultsSubContainer.module.css'
 import NewTrack from '../NewTrack/NewTrack'
 
-export default function MyPlaylistSubContainer(props) {
+export default function MyPlaylistSubContainer({namePlaylist, newPlaylist, deleteSong}) {
+  console.log(newPlaylist);
   return (
     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginBottom: '25px' }}>
-      <h2>{props.namePlaylist}</h2>
+      <h2>{namePlaylist}</h2>
       <div className={styles.resultsSubContainer}>
         <ul>
-          {props.newPlaylist.map(result => (
-            <li key={result.id} className={styles.li}>
-              <NewTrack result={result} deleteSong={props.deleteSong} />
+          {newPlaylist.map(track => (
+            <li key={track.id} className={styles.li}>
+              <NewTrack track={track} deleteSong={deleteSong} />
             </li>
           ))}
         </ul>

@@ -2,13 +2,13 @@ import React from 'react'
 import styles from '../Track/Track.module.css'
 import RemoveButton from '../RemoveButton/RemoveButton'
 
-export default function NewTrack(props) {
+export default function NewTrack({track, deleteSong}) {
   return (
     <div className={styles.liStyle}>
-      Artist: {props.result.artist}
-      Song: {props.result.title}
-      Album: {props.result.album}
-      <RemoveButton deleteSong={props.deleteSong} result={props.result} />
+      Song:{track.title}-
+      Artist:{track.artist}-
+      Album:{track.album}-
+      <RemoveButton deleteSong={deleteSong} track={track} />
     </div>
 
   )

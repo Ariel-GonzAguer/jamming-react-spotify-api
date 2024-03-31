@@ -2,12 +2,12 @@ import React from 'react'
 import styles from './AddButton.module.css'
 
 
-export default function AddButton(props) {
+export default function AddButton({ addSong, track }) {
   return (
-    <button className={styles.addButton} onClick={props.addSong}
-    id={props.result.id} title={props.result.title}
-    data-artist={props.result.artist} data-album={props.result.album}
+    <button className={styles.addButton} onClick={addSong}
+    id={track.id} title={track.name}
+    data-artist={track.artists[0].name} data-album={track.album.name} data-uri={track.uri}
     // cuando un elemento/etiqueta HTML no cuenta con ciertos atributos nativos, hay que usar data-set para añadirlos y que los reconozca, y así poder trabajar en ellos
-    >💖</button>
+    >🖤</button>
   )
 }
