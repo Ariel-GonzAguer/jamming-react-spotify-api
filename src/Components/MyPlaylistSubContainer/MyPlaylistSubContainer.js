@@ -3,7 +3,6 @@ import styles from '../ResultsSubContainer/ResultsSubContainer.module.css'
 import NewTrack from '../NewTrack/NewTrack'
 
 export default function MyPlaylistSubContainer({namePlaylist, newPlaylist, deleteSong}) {
-  console.log(newPlaylist);
   return (
     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginBottom: '25px' }}>
       <h2>{namePlaylist}</h2>
