@@ -7,7 +7,7 @@ export default function ResultsSubContainer({ tracks, setNewPlaylist }) {
     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginBottom: '25px' }}>
       <h2>Results</h2>
       <div className={styles.resultsSubContainer}>
-        <ul>
+        <ul className={styles.ul}>
           {tracks.map(track => (
             <li key={track.id} className={styles.li}>
               <Track track={track} setNewPlaylist={setNewPlaylist} />
