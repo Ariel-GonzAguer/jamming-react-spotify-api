@@ -2,14 +2,32 @@ import React from 'react'
 import styles from '../Track/Track.module.css'
 import RemoveButton from '../RemoveButton/RemoveButton'
 
-export default function NewTrack({track, deleteSong}) {
+export default function NewTrack({ track, setNewPlaylist }) {
+
+  function deleteTrack(e) {
+    e.preventDefault();
+    const trackToDelete = e.target.parentNode;
+
+    setNewPlaylist(prevPlaylist => {
+      const filteredTracks = prevPlaylist.tracks.filter(track => {
+        return track.id !== trackToDelete.id;
+      });
+
+      return {
+        ...prevPlaylist,
+        tracks: filteredTracks
+      };
+    });
+  }
+
   return (
-    <div className={styles.liStyle}>
+    <div className={styles.liStyle} id={track.id} title={track.title}
+      data-artist={track.artist} data-album={track.album} data-uri={track.uri}>
       Song:{track.title}-
       Artist:{track.artist}-
       Album:{track.album}-
-      <RemoveButton deleteSong={deleteSong} track={track} />
+      <RemoveButton deleteTrack={deleteTrack} />
     </div>
 
   )
-}
+}  

@@ -1,16 +1,16 @@
 import React from 'react'
-import styles from './ResultsSubContainer.module.css'
+import styles from './ResultsTracks.module.css'
 import Track from '../Track/Track'
 
-export default function ResultsSubContainer({ searchResults, addSong }) {
+export default function ResultsSubContainer({ tracks, setNewPlaylist }) {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginBottom: '25px' }}>
       <h2>Results</h2>
       <div className={styles.resultsSubContainer}>
         <ul>
-          {searchResults.map(track => (
+          {tracks.map(track => (
             <li key={track.id} className={styles.li}>
-              <Track track={track} addSong={addSong} />
+              <Track track={track} setNewPlaylist={setNewPlaylist} />
             </li>
           ))}
         </ul>

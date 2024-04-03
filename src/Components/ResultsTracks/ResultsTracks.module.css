@@ -16,7 +16,8 @@
   border-top: 3px solid white;
 }
 
-h2 {
+h2,
+.playListName  {
   font-size: 2rem;
   padding: 16px;
   margin-bottom: 0.5rem;
@@ -31,6 +32,5 @@ h2 {
   font-weight: bold;
   margin: 15px 5px;
 }
-
 
 

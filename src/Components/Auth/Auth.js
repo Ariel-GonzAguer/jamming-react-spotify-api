@@ -1,34 +1,36 @@
-import React from'react'
+import React, {useEffect, useState} from 'react'
+import styles from './Auth.module.css'
 
+export default function Auth({ setAccessToken, accessToken }) {
+  const CLIENT_ID = '2c18d86a1acd402fa4ff8ea866ac5864';
+  const REDIRECT_URI = 'http://localhost:3000';
+  const AUTH_ENDPOINT = 'https://accounts.spotify.com/authorize';
+  const RESPONSE_TYPE = 'token';
 
+  useEffect(() => {
+    let token = window.localStorage.getItem('token');
+    window.localStorage.setItem('token', accessToken);
 
+    if (!token) {
+      const urlParams = new URLSearchParams(window.location.hash.replace('#', '?'));
+      const ACCESS_TOKEN = urlParams.get('access_token');
+      token = ACCESS_TOKEN;
+      setAccessToken(token);
+    }
+  }, [accessToken]);
 
-export default function Auth ({clienteID}) {
+  function logout(e) {
+    e.preventDefault();
+    setAccessToken('');
+    window.localStorage.setItem('token', null);
+  }
 
-  var client_id = {clienteID};
-  var redirect_uri = 'http://localhost:3000//callback';
-  var stateKey = [];
-  
-function generateRandomString(length) {
-  return length * Math.random();
-
-}
-
-  var state = generateRandomString(16);
-  
-  localStorage.setItem(stateKey, state);
-  var scope = 'user-read-private user-read-email';
-  
-  var url = 'https://accounts.spotify.com/authorize';
-  url += '?response_type=token';
-  url += '&client_id=' + encodeURIComponent(client_id);
-  url += '&scope=' + encodeURIComponent(scope);
-  url += '&redirect_uri=' + encodeURIComponent(redirect_uri);
-  url += '&state=' + encodeURIComponent(state);
-  
-
-return (
-<>
-</>
-)
+  return (
+    <>
+      {!accessToken
+        ? <a className={styles.logIn} href={`${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}`}>Login</a>
+        : <button className={styles.logOut} onClick={logout}>LogOut</button>
+      }
+    </>
+  )
 }

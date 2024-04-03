@@ -1,67 +1,52 @@
 import React, { useState, useEffect } from 'react'
 import styles from './BigContainer.module.css'
 
+import Auth from '../Auth/Auth'
 import SearchBar from '../SearchBar/SearchBar'
 import SearchButton from '../SearchButton/SearchButton'
-import ResultsSubContainer from '../ResultsSubContainer/ResultsSubContainer'
-import MyPlaylistSubContainer from '../MyPlaylistSubContainer/MyPlaylistSubContainer'
-import SaveToSpotifyButton from '../SaveToSpotifyButton/SaveToSpotifyButton'
-import ResetPlaylist from '../ResetPlaylist/ResetPlaylist'
-import NameYourPlaylist from '../NameYourPlayList/NameYourPlaylist'
-import Auth from '../Auth/Auth'
+import ResultsTracks from '../ResultsTracks/ResultsTracks'
+import NewPlaylist from '../NewPlaylist/NewPlaylist'
+
 
 
 export default function BigContainer() {
+  // variables de estado
   const [accessToken, setAccessToken] = useState('');
-  const [clienteID, setClienteID] = useState('');
+  const [clienteURI, setClienteURI] = useState('');
   const [searchKey, setSearchKey] = useState('');
   const [tracks, setTracks] = useState([]);
-  const [newPlaylist, setNewPlaylist] = useState([]);
-  const [playlistToSend, setPlaylistToSend] = useState([]);
-
+  const [namePlaylist, setNamePlaylist] = useState('');
+  const [newPlaylist, setNewPlaylist] = useState({ name: '', tracks: [] });
 
   useEffect(() => {
-   
-  }, [  ]);
-  
-  
+    console.log(newPlaylist)
+
+  }, [newPlaylist]);
 
 
-  function addSong(e) {
-    const newSong =
-    {
-      id: e.target.id,
-      title: e.target.title,
-      artist: e.target.dataset.artist,
-      album: e.target.dataset.album,
-      uri: e.target.dataset.uri
-    }
 
-    setNewPlaylist(prevPlaylist => {
-      // con esta función solo se pueden agregar las canciones una vez a la lista
-      if (prevPlaylist.find(song => song.uri === newSong.uri)) {
-        return prevPlaylist;
-      } else {
-        return [...prevPlaylist, newSong]
-      }
-    });
-  }
 
-  function deleteSong(e) {
-    const songToDelete = e.target.id;
-    setNewPlaylist(prev => prev.filter(song => song.id !== songToDelete));
-  }
-
-  function resetPlaylist(e) {
-    setNewPlaylist([]);
+  // reset nueva playlist
+  function resetNewPlaylist(e) {
+    setNewPlaylist({ name: '', tracks: [] });
   }
 
 
   return (
     <div className={styles.bigContainer}>
+      <Auth accessToken={accessToken} setAccessToken={setAccessToken} />
 
+      {accessToken && (
+        <>
+          <SearchBar search={searchKey} setSearchKey={setSearchKey} />
+          <SearchButton searchKey={searchKey} accessToken={accessToken} setTracks={setTracks} />
+          <ResultsTracks tracks={tracks} setNewPlaylist={setNewPlaylist} />
+          <NewPlaylist newPlaylist={newPlaylist} setNewPlaylist={setNewPlaylist} namePlaylist={namePlaylist} setNamePlaylist={setNamePlaylist} />
+
+        </>
+      )}
     </div>
 
-    
+
   )
 }

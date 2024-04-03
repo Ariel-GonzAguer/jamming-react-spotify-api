@@ -1,0 +1,41 @@
+.logIn {
+  width: 100px;
+  height: 2rem;
+  background-color: #3f264d;
+  color: black;
+  border: 3px solid #9f3647;
+  border-radius: 20px;
+  background-color: black;
+  color: white;
+  background-color: black;
+  transition: 0.5s ease;
+  text-decoration: none;
+  font-size: 1.1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logIn:hover {
+  font-weight: bold;
+  transform: scale(1.1);
+}
+
+.logOut {
+  width: 100px;
+  height: 2rem;
+  background-color: #fb9553;
+  color: black;
+  border: 3px solid #9f3647;
+  border-radius: 20px;
+  background-color: black;
+  color: white;
+  background-color: black;
+  transition: 0.5s ease;
+  padding: 6px;
+  font-size: 1.1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
