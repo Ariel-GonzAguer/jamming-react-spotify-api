@@ -39,7 +39,7 @@ export default function SendToSpotifyButton({ newPlaylist, namePlaylist, clientI
     createPlaylist();
 
     async function addTracksToPlaylist() {
-      const response = await fetch(`https://api.spotify.com/v1/playlists/${playlistID}/tracks?uris=${playlistToSend.tracks}`, {
+       await fetch(`https://api.spotify.com/v1/playlists/${playlistID}/tracks?uris=${playlistToSend.tracks}`, {
         method: 'POST',
         headers: {
           'Authorization': 'Bearer 1POdFZRZbvb...qqillRxMr2z',

@@ -17,8 +17,6 @@ export default function Auth({ setAccessToken, accessToken }) {
       token = ACCESS_TOKEN;
       setAccessToken(token);
     }
-
-    
   }, [accessToken]);
 
   function logout(e) {
