@@ -4,7 +4,7 @@ import Track from '../Track/Track'
 
 export default function ResultsSubContainer({ tracks, setNewPlaylist }) {
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginBottom: '25px' }}>
+    <div style={{display: 'flex', justifyContent:'space-between', alignItems:'center', flexDirection: 'column'}}>
       <h2>Results</h2>
       <div className={styles.resultsSubContainer}>
         <ul className={styles.ul}>

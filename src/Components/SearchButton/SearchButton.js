@@ -9,12 +9,13 @@ export default function SearchButton({ searchKey, accessToken, setTracks }) {
       return;
     }
 
-    const url = `https://api.spotify.com/v1/search?q=${searchKey}&type=track`;
+    const url = `https://api.spotify.com/v1/search?q=${searchKey}&type=track&limit=50`;
 
     const response = await fetch(url, {
       headers: {
         'Authorization': `Bearer ${accessToken}`
-      }
+      }, 
+      method: 'GET'
     });
     const data = await response.json();
     const tracks = await data.tracks.items;

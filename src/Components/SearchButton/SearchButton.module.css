@@ -1,6 +1,6 @@
 .btnSubmit {
-  height: 2rem;
-  width: 66px;
+  height: 2.5rem;
+  width: 5rem;
   border: 3px solid #9f3647;
   border-radius: 25px;
   color: white;
@@ -11,4 +11,6 @@
 .btnSubmit:hover {
   font-weight: bold;
   transform: scale(1.1);
+  background-color: #fb9553;
+  color: black;
 }

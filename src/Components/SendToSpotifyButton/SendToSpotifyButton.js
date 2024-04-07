@@ -1,66 +1,64 @@
-import React from 'react'
-import styles from './SendToSpotify.module.css'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faSpotify } from '@fortawesome/free-brands-svg-icons'
+import React from 'react';
+import styles from './SendToSpotify.module.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSpotify } from '@fortawesome/free-brands-svg-icons';
 
-export default function SendToSpotifyButton({ newPlaylist, namePlaylist, clientID, accessToken }) {
-
-  function sendToSpotify(e) {
+export default function SendToSpotifyButton({ newPlaylist, namePlaylist,accessToken, setNamePlaylist }) {
+  async function sendToSpotify(e) {
     e.preventDefault();
 
-    if (newPlaylist.tracks.length < 1) {
-      alert('Empty playlist!');
-      return
-    }
+    try {
+      const trackURIs = newPlaylist.tracks.map(track => track.uri);
+      const playlistToSend = {
+        name: namePlaylist,
+        tracks: trackURIs
+      };
 
-    const trackURIs = newPlaylist.tracks.map(track => track.uri)
-    const playlistToSend = {
-      name: namePlaylist,
-      tracks: trackURIs
-    }
+      if(newPlaylist.tracks.length < 1 || namePlaylist === '') {
+        alert('Please add some tracks and select a name for your playlist!');
+        return;
+      }
 
-    let playlistID;
-    async function createPlaylist() {
-      const response = await fetch(`https://api.spotify.com/v1/users/${clientID}/playlists`, {
+      const headers = { Authorization: `Bearer ${accessToken}` };
+      let userId;
+
+      const response = await fetch('https://api.spotify.com/v1/me', { headers: headers });
+      const jsonResponse = await response.json();
+      userId = jsonResponse.id;
+
+      const response_1 = await fetch(`https://api.spotify.com/v1/users/${userId}/playlists`, {
+        headers: headers,
         method: 'POST',
-        headers: {
-          'Authorization': `Bearer ${accessToken}`,
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          'name': `${playlistToSend.name}`,
-          'description': 'New playlist created from Jammming!',
-          'public': false
-        })
-      });
-      const data = await response.json();
-      return playlistID = data.id;
-    }
-    createPlaylist();
-
-    async function addTracksToPlaylist() {
-       await fetch(`https://api.spotify.com/v1/playlists/${playlistID}/tracks?uris=${playlistToSend.tracks}`, {
-        method: 'POST',
-        headers: {
-          'Authorization': 'Bearer 1POdFZRZbvb...qqillRxMr2z',
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          'uris': [
-            'string'
-          ],
-          'position': 0
-        })
+        body: JSON.stringify({ name: namePlaylist })
       });
 
+      const jsonResponse_1 = await response_1.json();
+      const playlistId = jsonResponse_1.id;
 
+      await fetch(`https://api.spotify.com/v1/users/${userId}/playlists/${playlistId}/tracks`, {
+        headers: headers,
+        method: 'POST',
+        body: JSON.stringify({ uris: playlistToSend.tracks })
+      });
+
+      alert('Playlist sent to Spotify!');
+      newPlaylist.tracks = [];
+      setNamePlaylist('');
+
+
+    } catch (error) {
+      console.error('error: ', error);
     }
-    addTracksToPlaylist()
-
-
 
   }
+
   return (
-    <FontAwesomeIcon role='button' icon={faSpotify} className={styles.spotify} onClick={sendToSpotify} />
-  )
+    <FontAwesomeIcon
+      role='button'
+      icon={faSpotify}
+      className={styles.spotify}
+      onClick={sendToSpotify}
+    />
+  );
+
 }

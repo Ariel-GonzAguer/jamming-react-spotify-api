@@ -1,9 +1,17 @@
 .resetPlaylist {
   background-color: red;
   color: white;
-  border: 2px solid rgb(128, 0, 0);
-  width: 70px;
-  height: 70px;
+  border: 5px solid rgb(128, 0, 0);
+  width: 80px;
+  height: 80px;
   border-radius: 25px;
   text-align: center;
+  margin: 20px 0;
+  padding: 5px;
+  transition: 0.5s ease;
+}
+
+.resetPlaylist:hover {
+  transform: scale(1.1);
+  font-weight: bold;
 }

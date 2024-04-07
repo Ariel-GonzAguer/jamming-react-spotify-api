@@ -10,10 +10,12 @@
   background-color: black;
   transition: 0.5s ease;
   text-decoration: none;
-  font-size: 1.1rem;
+  font-size: 1.5rem;
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: 20px auto;
+  padding: 50px;
 }
 
 .logIn:hover {
@@ -24,11 +26,8 @@
 .logOut {
   width: 100px;
   height: 2rem;
-  background-color: #fb9553;
-  color: black;
   border: 3px solid #9f3647;
   border-radius: 20px;
-  background-color: black;
   color: white;
   background-color: black;
   transition: 0.5s ease;
@@ -37,5 +36,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: 10px;
+  transition: 0.5s ease;
+}
 
+.logOut:hover {
+  font-weight: bold;
+  transform: scale(0.95);
 }

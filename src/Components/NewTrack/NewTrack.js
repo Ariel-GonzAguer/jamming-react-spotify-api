@@ -3,7 +3,7 @@ import styles from '../Track/Track.module.css'
 import RemoveButton from '../RemoveButton/RemoveButton'
 
 export default function NewTrack({ track, setNewPlaylist }) {
-
+  
   function deleteTrack(e) {
     e.preventDefault();
     const trackToDelete = e.target.parentNode;
@@ -23,9 +23,8 @@ export default function NewTrack({ track, setNewPlaylist }) {
   return (
     <div className={styles.liStyle} id={track.id} title={track.title}
       data-artist={track.artist} data-album={track.album} data-uri={track.uri}>
-      Song:{track.title}-
-      Artist:{track.artist}-
-      Album:{track.album}-
+      {track.title} by {track.artist} <br />
+      Album: {track.album}
       <RemoveButton deleteTrack={deleteTrack} />
     </div>
 

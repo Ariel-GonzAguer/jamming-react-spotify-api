@@ -32,9 +32,8 @@ export default function Track({track, setNewPlaylist}) {
   return (
     <div className={style.liStyle} id={track.id} title={track.name}
     data-artist={track.artists[0].name} data-album={track.album.name} data-uri={track.uri}>
-      Song:{track.name}-
-      Artist:{track.artists[0].name}-
-      Album:{track.album.name}-
+      {track.name} by {track.artists[0].name} <br />
+      Album: {track.album.name}
       <AddButton addTrack={addTrack} />
       </div>
   )
