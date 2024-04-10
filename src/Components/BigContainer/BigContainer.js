@@ -26,7 +26,7 @@ export default function BigContainer() {
           <SearchBar search={searchKey} setSearchKey={setSearchKey} />
           <SearchButton searchKey={searchKey} accessToken={accessToken} setTracks={setTracks} />
           <div className={styles.resNpla}>
-            <ResultsTracks tracks={tracks} setNewPlaylist={setNewPlaylist} />
+            <ResultsTracks tracks={tracks} setTracks={setTracks} setNewPlaylist={setNewPlaylist} />
             <ResetPlaylist setNewPlaylist={setNewPlaylist} />
             <NewPlaylist newPlaylist={newPlaylist} setNewPlaylist={setNewPlaylist} namePlaylist={namePlaylist} setNamePlaylist={setNamePlaylist} accessToken={accessToken} />
           </div>

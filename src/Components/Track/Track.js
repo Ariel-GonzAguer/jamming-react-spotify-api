@@ -2,7 +2,7 @@ import React from 'react'
 import AddButton from '../AddButton/AddButton'
 import style from './Track.module.css'
 
-export default function Track({track, setNewPlaylist}) {
+export default function Track({ track, setTracks, setNewPlaylist }) {
 
   function addTrack(e) {
     e.preventDefault();
@@ -17,9 +17,9 @@ export default function Track({track, setNewPlaylist}) {
 
     setNewPlaylist(prevPlaylist => {
       if
-       (prevPlaylist.tracks.find(track => track.id === newTrack.id)) {
+        (prevPlaylist.tracks.find(track => track.id === newTrack.id)) {
         alert('Song added already!');
-        return {...prevPlaylist};
+        return { ...prevPlaylist };
       } else {
         return {
           ...prevPlaylist,
@@ -27,14 +27,21 @@ export default function Track({track, setNewPlaylist}) {
         };
       }
     });
+
+    // setTracks(prevTrack => {
+    //   const filteredTracks = prevTrack.filter(track => {
+    //     return track.id !== newTrack.id;
+    //   });
+    //   return filteredTracks;
+    // })
   }
 
   return (
     <div className={style.liStyle} id={track.id} title={track.name}
-    data-artist={track.artists[0].name} data-album={track.album.name} data-uri={track.uri}>
+      data-artist={track.artists[0].name} data-album={track.album.name} data-uri={track.uri}>
       {track.name} by {track.artists[0].name} <br />
       Album: {track.album.name}
       <AddButton addTrack={addTrack} />
-      </div>
+    </div>
   )
 }
