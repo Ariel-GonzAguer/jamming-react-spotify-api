@@ -1,0 +1,19 @@
+.modal {
+  border: 1px solid black;
+  padding: 0.5rem;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+}
+
+.close {
+  background-color: #fb9553;
+  margin-left: 1rem;
+  padding: 2px;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+.modal::backdrop {
+  background: rgba(0,0,0,0.5);
+}
