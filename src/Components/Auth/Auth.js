@@ -4,7 +4,8 @@ import styles from './Auth.module.css'
 export default function Auth({ setAccessToken, accessToken }) {
   
   const CLIENT_ID = '2905f8a42cf843879f1c2770f312adb2';
-  const REDIRECT_URI = 'http://localhost:3000';
+  const REDIRECT_URI = 'https://ja-mmm-ing-app.netlify.app/'
+  // 'http://localhost:3000';
   const AUTH_ENDPOINT = 'https://accounts.spotify.com/authorize';
   const RESPONSE_TYPE = 'token';
   const accessUrl = `${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&response_type=${RESPONSE_TYPE}&scope=playlist-modify-public&redirect_uri=${REDIRECT_URI}`;
